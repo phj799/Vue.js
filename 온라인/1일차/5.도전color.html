@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .colorBlue {
+      color: blue;
+    }
+    .colorRed {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1 v-bind:class="color1">HI</h1>
+    <button v-on:click="changeColor">컬러바꾸기</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.min.js"></script>
+  <script>
+    let flag = 1;
+    const app = new Vue({
+      el: "#app",
+      data(){
+        return {
+          color1: "colorBlue",
+          color2: "colorRed"
+        }
+      },
+      methods:{
+        changeColor(){
+          if(flag==1) {
+            this.color1 = this.color2;
+            flag = 0;
+          }
+          else {
+            this.color1 = "colorBlue";
+            flag = 1;
+          }
+        }
+      }
+    })
+    
+  </script>
+</body>
+</html>
